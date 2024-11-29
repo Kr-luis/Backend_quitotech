@@ -45,11 +45,11 @@ router.get('/propietario/tienda/:id_propietario', obtenerTiendaDelpropietario);
 
 // ! Rutas tienda 
 
-router.post('/propietario/solicitud/',verificarAutorizacion,solicitarTienda) //OK
+router.post('/propietario/solicitud/',verificarAutenticacion,solicitarTienda) //OK
 router.get('/confirmartienda/:tokentienda',confirmarTienda) //OK
-router.get('/listartiendas',verificarAutorizacion,listarTiendas) //OK
-router.get('/tienda/:id',verificarAutorizacion,obtenerTiendaConProductos) //OK
-router.get('/listartiendasopciones',verificarAutorizacion,listarTiendasproductos) // OK
+router.get('/listartiendas',verificarAutenticacion,listarTiendas) //OK
+router.get('/tienda/:id',verificarAutenticacion,obtenerTiendaConProductos) //OK
+router.get('/listartiendasopciones',verificarAutenticacion,listarTiendasproductos) // OK
 
 
 
