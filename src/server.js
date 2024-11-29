@@ -8,7 +8,6 @@ import { v2 as cloudinary } from 'cloudinary';
 import routerAdministrador from './routers/administrador_routes.js'
 import routerPropietario from './routers/propietario_routes.js'
 import routerProducto from './routers/productos_routes.js'
-import routerModerador from './routers/moderador_routes.js'
 import routerUsuarios from './routers/usuario_routes.js'
 import routerComentarios from './routers/comentarios_routes.js'
 import routerfavorito from './routers/favoritos_routes.js'
@@ -46,7 +45,6 @@ app.get('/', (req, res) => {
 app.use('/quitotech', routerAdministrador)
 app.use('/quitotech', routerPropietario)
 app.use('/quitotech', routerProducto)
-app.use('/quitotech', routerModerador)
 app.use('/quitotech', routerUsuarios)
 app.use('/quitotech', routerComentarios)
 app.use('/quitotech', routerfavorito)
