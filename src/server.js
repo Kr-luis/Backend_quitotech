@@ -45,7 +45,6 @@ app.get('/', (req, res) => {
 app.use('/quitotech', routerAdministrador)
 app.use('/quitotech', routerPropietario)
 app.use('/quitotech', routerProducto)
-app.use('/quitotech', routerModerador)
 app.use('/quitotech', routerUsuarios)
 app.use('/quitotech', routerComentarios)
 app.use('/quitotech', routerfavorito)
