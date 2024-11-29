@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Producto from "../models/producto.js"
-import Usuario from "../models/usuario.js"
+import UsuarioMovil from "../models/usuariomovil.js"
 import Comentario from "../models/comentarios.js"
 
 // Método para crear el comentario

@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
 import Producto from "../models/producto.js";
 import Favorito from "../models/favoritos.js";
-import Usuario from "../models/usuario.js";
+import UsuarioMovil from "../models/usuariomovil.js";
 
 
 const registrarfavorito = async (req, res) => {
     const { id_usuario, id_producto } = req.body;
 
     const verificarProducto = await Producto.findById(id_producto);
-    const verificarUsuario = await Usuario.findById(id_usuario);
+    const verificarUsuario = await UsuarioMovil.findById(id_usuario);
     const verificarFavorito = await Favorito.findOne({id_usuario, id_producto})
 
     if (Object.values(req.body).includes("")) return res.status(400).json({ msg: "Lo sentimos, debes llenar todos los campos" });

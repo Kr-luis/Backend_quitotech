@@ -13,6 +13,14 @@ const AdministradorSchema = new Schema({
     password:{
         type:String,
         require:true
+    },
+    token:{
+        type:String,
+        default:null
+    },
+    confirmEmail:{
+        type:Boolean,
+        default:false
     }
 },{
     timestamps:true
@@ -27,5 +35,9 @@ AdministradorSchema.methods.encrypPassword = async function(password){
 AdministradorSchema.methods.matchPassword = async function(password){
     const response = await bcrypt.compare(password,this.password)
     return response
+}
+AdministradorSchema.methods.crearToken = function(){
+    const tokenGenerado = this.token = Math.random().toString(36).slice(2)
+    return tokenGenerado
 }
 export default model('Administrador',AdministradorSchema)

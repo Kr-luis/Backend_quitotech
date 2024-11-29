@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 import Administrador from '../models/administrador.js'
-import Propietario from '../models/propietario.js'
+import Usuario from '../models/usuario.js'
 
 const verificarAutenticacion = async (req,res,next)=>{
 
@@ -12,7 +12,7 @@ if(!req.headers.authorization) return res.status(404).json({msg:"Lo sentimos, de
             req.AdministradorBDD = await Administrador.findById(id).lean().select("-password")
             next()
         } else {
-            req.propietarioBDD = await propietario.findById(id).lean().select("-password")
+            req.propietarioBDD = await Usuario.findById(id).lean().select("-password")
             next()
         }
     } catch (error) {

@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import Producto from "../models/producto.js";
 import Reserva from "../models/reservas.js";
-import Usuario from "../models/usuario.js";
-import Propietario from "../models/propietario.js"
+import UsuarioMovil from "../models/usuariomovil.js";
+import Usuario from "../models/usuario.js"
 
 
 const registrarReserva = async (req, res) => {
@@ -13,9 +13,9 @@ const registrarReserva = async (req, res) => {
         return res.status(400).json({ msg: "Lo sentimos, debes llenar todos los campos" });
 
     try {
-        const verificarUsuario = await Usuario.findById(id_usuario);
+        const verificarUsuario = await UsuarioMovil.findById(id_usuario);
         const verificarProducto = await Producto.findById(id_producto);
-        const verificarPropietario = await Propietario.findById(id_propietario);
+        const verificarPropietario = await Usuario.findById(id_propietario);
         const reservaExistente = await Reserva.findOne({id_usuario,id_producto,id_propietario});
          // Actualizar la cantidad del producto (restar 1)
         const productoActualizado = await Producto.findByIdAndUpdate(
@@ -96,7 +96,7 @@ const obtenerReserva = async (req, res) => {
     const { id } = req.params; // Recuperamos el id del parámetro de la URL
   
     // Verificamos si el usuario existe en la base de datos
-    const usuarioExistente = await Usuario.findById(id);
+    const usuarioExistente = await UsuarioMovil.findById(id);
     if (!usuarioExistente) {
       return res.status(404).json({ msg: 'El usuario no existe' });
     }

@@ -6,9 +6,9 @@ import fileUpload from 'express-fileupload';
 import { v2 as cloudinary } from 'cloudinary';
 
 import routerAdministrador from './routers/administrador_routes.js'
-import routerPropietario from './routers/propietario_routes.js'
+import routerUsuario from './routers/usuario_routes.js'
 import routerProducto from './routers/productos_routes.js'
-import routerUsuarios from './routers/usuario_routes.js'
+import routerUsuarioMovil from './routers/usuariomovil_routes.js'
 import routerComentarios from './routers/comentarios_routes.js'
 import routerfavorito from './routers/favoritos_routes.js'
 import routerReserva from './routers/reservas-router.js'
@@ -43,9 +43,9 @@ app.get('/', (req, res) => {
     res.send("Server on")
 })
 app.use('/quitotech', routerAdministrador)
-app.use('/quitotech', routerPropietario)
+app.use('/quitotech', routerUsuario)
 app.use('/quitotech', routerProducto)
-app.use('/quitotech', routerUsuarios)
+app.use('/quitotech', routerUsuarioMovil)
 app.use('/quitotech', routerComentarios)
 app.use('/quitotech', routerfavorito)
 app.use('/quitotech', routerReserva)

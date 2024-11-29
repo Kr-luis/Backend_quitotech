@@ -6,6 +6,15 @@ const UsuarioSchema = new Schema({
         require:true,
         trim:true
     },
+    apellido:{
+        type:String,
+        require:true,
+        trim:true
+    },
+    Numero:{
+        type:Number,
+        require:true
+    },
     email:{
         type:String,
         require:true,
@@ -15,9 +24,20 @@ const UsuarioSchema = new Schema({
         type:String,
         require:true
     },
-    acepta_terminos:{
+    Usuario:{
         type:Boolean,
-        require:true,
+        default:false
+    },
+    token:{
+        type:String,
+        default:null
+    },
+    tokentienda:{
+        type:String,
+        default:null
+    },
+    confirmEmail:{
+        type:Boolean,
         default:false
     }
 },{
@@ -32,7 +52,14 @@ UsuarioSchema.methods.encrypPassword = async function(password){
 // * Método para verificar si el password ingresado es el mismo de la BDD
 UsuarioSchema.methods.matchPassword = async function(password){
     const response = await bcrypt.compare(password,this.password)
-    console.log(response)
     return response
+}
+UsuarioSchema.methods.crearToken = function(){
+    const tokenGenerado = this.token = Math.random().toString(36).slice(2)
+    return tokenGenerado
+}
+UsuarioSchema.methods.crearTokentienda = function(){
+    const tokentiendagenerado = this.tokentienda = Math.random().toString(36).slice(2)
+    return tokentiendagenerado
 }
 export default model('Usuario',UsuarioSchema)

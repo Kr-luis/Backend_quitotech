@@ -541,6 +541,7 @@ const obtenerModerador = async (req, res) => {
     return res.status(500).json({ message: "Error al obtener el moderador" });
   }
 };
+
 const mostrarUsuarioPorId = async (req, res) => {
   const { id } = req.params; // Obtener el ID del parámetro de la solicitud
 
