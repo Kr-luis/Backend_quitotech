@@ -15,13 +15,13 @@ import verificarAutenticacion from "../middlewares/autenticacion.js";
 const router = Router();
 
 
-router.post('/producto/registro',verificarAutorizacion, registrarProducto);
+router.post('/producto/registro',verificarAutenticacion, registrarProducto);
 router.get('/producto/:id', detalleProducto);
 router.get('/productos/enstock', obtenerProductos);
 router.get('/productos/enstock/:Categoria', listarproductosporCategoria);
 router.get('/productos/sinstock', ProductosInactivos);
-router.put('/producto/:id', verificarAutorizacion,actualizarProducto);
-router.put('/producto/estado/:id', verificarAutorizacion,cambiarEstado);
-router.delete('/producto/:id', verificarAutorizacion,eliminarProducto);
+router.put('/producto/:id', verificarAutenticacion,actualizarProducto);
+router.put('/producto/estado/:id', verificarAutenticacion,cambiarEstado);
+router.delete('/producto/:id', verificarAutenticacion,eliminarProducto);
 
 export default router;
